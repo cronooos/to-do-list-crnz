@@ -8,13 +8,36 @@
 	<link rel="stylesheet" type="text/css" href="design/style.css">
 </head>
 <body>
+	<div id="formcontainer" class="form-container fullscreen">
+		<button class="closebtn" onclick="toggleForm()">
+			<img src="img/close.png"/>
+		</button>
+		<div class="form " id="form">
+			<form class="item-form">
+				<h1>Create Item</h1>
+				<br>
+				<h6>Title</h6>
+				<input type="text" id="title" onkeyup ="titlecounter(this)" onkeydown="titlecounter(this)">
+				<p id="charcounter2">character count 0/20</p>
+				<hr>
+				<h6>Description</h6>
+				<textarea onkeyup ="counter(this)" onkeydown="counter(this)" id="content"></textarea>
+				<p id="charcounter">character count 0/200</p>
+				<img src="https://www.flaticon.es/svg/static/icons/svg/2070/2070869.svg"/>
+				<div class="form-btns">
+					<button onclick="verify()">Add Item</button>
+				</div>
+			</form>
+		</div>
+	</div>
 	<div class="box-container">
 		<div class="list-container" id="list">
-
+			<div class="list-item" id="item1'">
+			</div>
 		</div>
 	</div>
 	<div class="adding">
-		<button id="addbtn" onclick="addItem()">
+		<button id="addbtn" onclick="toggleForm()" >
 			<img src="https://img.icons8.com/ios-glyphs/60/ffffff/pencil--v1.png"/>
 		</button>
 	</div>
@@ -26,8 +49,10 @@
 				<hr>
 				<h6 style="font-size: 1.8em;">Icons:</h6>
 				<a href="https://icons8.com/icon/JzsY0aqw59GQ/pencil">Pencil icon by Icons8</a>
+				<hr>
+				<a href="https://www.flaticon.es/autores/surang" title="surang">surang</a>
 			</div>
-			<div class="section">
+			<div class="section mid">
 				<h3>Social</h3>
 				<hr>
 				<a class="footer-icon" href=""><img src="https://img.icons8.com/metro/52/000000/instagram-new.png"/></a>
@@ -43,5 +68,6 @@
 		</div>	
 	</footer>
 	<script type="text/javascript" src="javascript/app.js"></script>
+	<script type="text/javascript" src="javascript/form.js"></script>
 </body>
 </html>

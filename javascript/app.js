@@ -1,4 +1,5 @@
 // remove item from the list ``
+
 var currentId = 0;
 var items = [];
 
@@ -10,7 +11,7 @@ function item(id, title, cont){
 		return `<div class="list-item" id="${this.id}'">
 								<div class="item-box">
 									<div class="item-header">
-										<h1>${this.title} id:${this.id}</h1>
+										<h1>${this.title}</h1>
 										<div class="icon">
 											<button onclick="removeItem('${this.id}')">
 												<img src="https://img.icons8.com/metro/52/000000/check-all.png"/>
@@ -27,6 +28,8 @@ function item(id, title, cont){
 							`;
 	}
 };
+
+
 
 function refresh(){
 	let content = "";
@@ -52,12 +55,36 @@ function removeItem(id){
 	refresh();
 }
 
+function toggleForm(){
+	let formContainer = document.getElementById('formcontainer');
+	let form = document.getElementById('form');
+	let body = document.getElementsByTagName("body")[0];
+	window.scroll(0,0,'smooth');
+	formContainer.classList.toggle("show");
+	form.classList.toggle("display");
+	body.classList.toggle("fullscreen");
+}
 
-
-function addItem(){
+function addItem(title, content){
 	
-	let newBlock = new item(currentId, "prueba", "esta es una prueba")
+	let newBlock = new item(currentId, title, content);
 	items.push(newBlock);
 	currentId += 1;
 	refresh();
 }
+
+function verify(){
+	let tit = document.getElementById("title");
+	let cont = document.getElementById("content");
+
+	if (tit.value.replace(/\s+/g, '').length > 0 && cont.value.replace(/\s+/g, '').length > 0){
+		toggleForm();
+		addItem(tit.value, cont.value);
+	} else window.alert("please complete the fields");
+
+	tit.value = "";
+	cont.value = "";
+
+	return;
+}
+
